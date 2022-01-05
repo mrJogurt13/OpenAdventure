@@ -2,6 +2,7 @@ package mj.openadventure.openadventuregui;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 
 public class Terminal {
@@ -15,5 +16,9 @@ public class Terminal {
     protected void initialize(){
         ta_console.setText("YHello");
         System.out.println(ta_console.getText());
+    }
+
+    public void checkForReturn(KeyEvent keyEvent) {
+        //check for command
     }
 }
