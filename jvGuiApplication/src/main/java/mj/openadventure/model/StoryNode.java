@@ -11,25 +11,36 @@ import java.util.List;
  */
 public class StoryNode {
 
+    private String name;
     private String text;
     private final HashMap<String, StoryNode> references;
 
     /**
-     * Creates a StoryNode with the given text and no initial references.
+     * Creates a StoryNode with the given name, story text and no initial references.
      *
      * @param text main text of this story node (immutable after creation)
+     * @param name name of this story node
      */
-    public StoryNode(String text) {
+    public StoryNode(String name, String text) {
+        this.name = name;
         this.text = text;
         this.references = new HashMap<>();
     }
 
     /**
-     * Creates an empty StoryNode with no initial references.
+     * Creates an empty StoryNode with the given name and
+     * no initial references.
+     *
+     * @param name name of this story node
      */
-    public StoryNode() {
+    public StoryNode(String name) {
+        this.name = name;
         this.text = null;
         this.references = new HashMap<>();
+    }
+
+    public String getName() {
+        return name;
     }
 
     /**
