@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.Scene?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.TextFlow?>
 
-<Scene xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mj.openadventure.openadventuregui.Terminal">
-   <AnchorPane fx:id="ap_main" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" stylesheets="@../styleSheets/default.css">
-      <children>
-         <TextArea fx:id="ta_console" onKeyPressed="#checkForReturn" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      </children>
+<Scene fx:id="sc_main" onKeyPressed="#keyStrokes" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mj.openadventure.openadventuregui.Terminal" stylesheets="@../styleSheets/default.css">
+   <AnchorPane fx:id="ap_main" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+               prefHeight="540.0" prefWidth="960.0">
+      <TextFlow styleClass="text-flow" fx:id="tf_console" onKeyPressed="#keyStrokes" prefHeight="200.0"
+                prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                AnchorPane.topAnchor="0.0"/>
    </AnchorPane>
 </Scene>

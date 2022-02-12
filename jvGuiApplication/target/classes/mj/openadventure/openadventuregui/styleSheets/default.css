@@ -1,7 +1,11 @@
-.text-area .content {
- -fx-background-color: #383736;
+.text-id {
+ -fx-fill: #dddddd;
 }
-.text-area {
- -fx-text-fill: #dddddd;
- -fx-font-size: 16px;
+.text-style {
+ -fx-font-smoothing-type: lcd;
+ -fx-fill: white;
+ -fx-font-size: 30pt;
+}
+.text-flow {
+ -fx-background-color: #383736;
 }
