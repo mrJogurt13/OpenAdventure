@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Represents one story page parsed from a file
+ * Represents one story page parsed from a file.
  */
 public class StoryPage {
 

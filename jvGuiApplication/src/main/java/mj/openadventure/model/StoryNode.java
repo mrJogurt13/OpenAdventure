@@ -5,13 +5,13 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- * Represents one story page in the story graph
+ * Represents one story page in the story graph.
  *
  * @author Andi
  */
 public class StoryNode {
 
-    private String name;
+    private final String name;
     private String text;
     private final HashMap<String, StoryNode> references;
 

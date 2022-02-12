@@ -12,6 +12,11 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
+/**
+ * Parses Files into the engine
+ *
+ * @author Andi
+ */
 public class FileParser {
 
     private final String cmdSeq = "<#>";
