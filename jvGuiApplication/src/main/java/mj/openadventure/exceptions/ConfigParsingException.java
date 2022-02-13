@@ -1,7 +1,12 @@
 package mj.openadventure.exceptions;
 
-public class ConfigParsingException extends Exception {
-    public ConfigParsingException(String msg) {
-        super(msg);
+/**
+ * Exception for errors in the parsing of configs.
+ *
+ * @author corb
+ */
+public class ConfigParsingException extends OpenAdventureException {
+    public ConfigParsingException(Exception e){
+        super(e);
     }
 }

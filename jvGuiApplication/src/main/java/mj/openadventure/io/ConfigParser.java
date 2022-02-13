@@ -7,6 +7,8 @@ import org.w3c.dom.Node;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 import static mj.openadventure.globals.RuntimeVars.*;
 import static mj.openadventure.globals.enums.ConfigFiles.cfg;
@@ -41,12 +43,7 @@ public class ConfigParser {
             doc = builder.parse(configFile);
             doc.getDocumentElement().normalize();
         } catch (Exception e){
-            //TODO: make to single call with separate message builder
-            StringBuilder sb = new StringBuilder(e + "\r\n");
-            for(StackTraceElement ste : e.getStackTrace()){
-                sb.append(ste.toString()).append("\r\n");
-            }
-            throw new ConfigParsingException(sb.toString());
+            throw new ConfigParsingException(e);
         }
         return doc.getElementsByTagName(key).item(0).getTextContent();
     }
@@ -66,20 +63,20 @@ public class ConfigParser {
             builder = factory.newDocumentBuilder();
             doc = builder.parse(configFile);
             doc.getDocumentElement().normalize();
+            List<Node> nodes = new ArrayList<>();
             for(int i=0; i<doc.getDocumentElement().getChildNodes().getLength(); i++){
-                //TODO: parse groups
-                Node n = doc.getDocumentElement().getChildNodes().item(i);
-                if(!config.containsKey(n.getNodeName())){
-                    config.put(n.getNodeName(), n.getTextContent());
+                nodes.add(doc.getDocumentElement().getChildNodes().item(i));
+            }
+            for(Node n : nodes) {
+                for(int i=0;i<n.getChildNodes().getLength();i++) {
+                    Node configNode = n.getChildNodes().item(i);
+                    if (!config.containsKey(configNode.getNodeName())) {
+                        config.put(configNode.getNodeName(), configNode.getTextContent());
+                    }
                 }
             }
         } catch (Exception e){
-            //TODO: make to single call with separate message builder
-            StringBuilder sb = new StringBuilder(e + "\r\n");
-            for(StackTraceElement ste : e.getStackTrace()){
-                sb.append(ste.toString()).append("\r\n");
-            }
-            throw new ConfigParsingException(sb.toString());
+            throw new ConfigParsingException(e);
         }
     }
 
