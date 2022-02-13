@@ -65,9 +65,9 @@ public class FileParser {
                 String[] cmdArray = currentLine.split(cmdSeq, 2);
 
                 if (cmdArray.length != 2 || cmdArray[0].isEmpty() || cmdArray[1].isEmpty()) {
-                    String errMsg = String.format("Syntax error in file %s at line %d:\r\n", inputFile.getName(), lineNr) +
-                            "Command definition must include exactly 2 arguments\r\n";
-                    throw new StoryFileMalformedException(errMsg);
+                    throw new StoryFileMalformedException(
+                            String.format("Syntax error in file %s at line %d:\r\n", inputFile.getName(), lineNr) +
+                            "Command definition must include exactly 2 arguments\r\n");
                 }
 
                 storyPage.addCommand(cmdArray[0], cmdArray[1]);
