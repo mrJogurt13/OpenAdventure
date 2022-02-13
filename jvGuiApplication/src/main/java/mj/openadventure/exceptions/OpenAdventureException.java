@@ -8,6 +8,7 @@ import static mj.openadventure.exceptions.OpenAdventureStackTrace.getCustomExcep
  * @author corb
  */
 public class OpenAdventureException extends Exception{
+    //TODO: Exception handling when application is in use (error popup reference issue #17)
 
     /**
      * Constructor for StackTrace as message.
